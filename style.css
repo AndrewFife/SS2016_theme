@@ -681,6 +681,13 @@ h6,
 }
 
 /*  Primary Navigation Extras */
+.genesis-nav-menu li.highlight a {
+    background-color: #ff6600;
+    border-radius: 3px;
+    color: #fff;
+    font-weight: 400;
+    margin-left: 20px;
+
 .genesis-nav-menu li.right {
   float: right;
   padding: 24px 20px;
