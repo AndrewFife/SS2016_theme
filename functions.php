@@ -53,6 +53,54 @@ function gs_theme_setup() {
 	'flex-height' => true,
 	'flex-width'  => true,
 	        ) );
+	        
+/**
+ * Add an image inline in the site title element for the main logo
+ *
+ * The custom logo is then added via the Customiser
+ *
+ * @param string $title All the mark up title.
+ * @param string $inside Mark up inside the title.
+ * @param string $wrap Mark up on the title.
+ * 
+ */
+function SS2016_custom_logo( $title, $inside, $wrap ) {
+	// Check to see if the Custom Logo function exists and set what goes inside the wrapping tags.
+	if ( function_exists( 'has_custom_logo' ) && has_custom_logo() ) :
+		$logo = the_custom_logo();
+	else :
+	 	$logo = get_bloginfo( 'name' );
+	endif;
+ 	 // Use this wrap if no custom logo - wrap around the site name
+	 $inside = sprintf( '<a href="%s" title="%s">%s</a>', trailingslashit( home_url() ), esc_attr( get_bloginfo( 'name' ) ), $logo );
+	 // Determine which wrapping tags to use - changed is_home to is_front_page to fix Genesis bug.
+	 $wrap = is_front_page() && 'title' === genesis_get_seo_option( 'home_h1_on' ) ? 'h1' : 'p';
+	 // A little fallback, in case an SEO plugin is active - changed is_home to is_front_page to fix Genesis bug.
+	 $wrap = is_front_page() && ! genesis_get_seo_option( 'home_h1_on' ) ? 'h1' : $wrap;
+	 // And finally, $wrap in h1 if HTML5 & semantic headings enabled.
+	 $wrap = genesis_html5() && genesis_get_seo_option( 'semantic_headings' ) ? 'h1' : $wrap;
+	 $title = sprintf( '<%1$s %2$s>%3$s</%1$s>', $wrap, genesis_attr( 'site-title' ), $inside );
+	 return $title;
+}
+add_filter( 'genesis_seo_title','SS2016_custom_logo', 10, 3 );
+/**
+ * Add class for screen readers to site description.
+ * This will keep the site description mark up but will not have any visual presence on the page
+ * This runs if their is a header image set in the Customiser.
+ *
+ * @param string $attributes Add screen reader class if custom logo is set.
+ *
+ */
+ function SS2016_add_site_description_class( $attributes ) {
+	if ( function_exists( 'has_custom_logo' ) && has_custom_logo() ) {
+		$attributes['class'] .= ' screen-reader-text';
+		return $attributes;
+	}
+	else {
+		return $attributes;
+	}
+ }
+ add_filter( 'genesis_attr_site-description', 'SS2016_add_site_description_class' );
 
 
 	// Add support for structural wraps
