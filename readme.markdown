@@ -1,4 +1,4 @@
-# Genesis Sandbox (Free Version)
+# SS2016_theme ( Fork from Genesis Sandbox -Free Version)
 
 ## Installation
 1. Upload the theme folder via FTP to your wp-content/themes/ directory.
@@ -7,7 +7,7 @@
 4. Inside your WordPress dashboard, go to Genesis > Theme Settings and configure them to your liking.
 
 ## Features
-The Free Version of the Genesis Sandbox provides developers with a base theme for quicker child theme development pushing the focus more on CSS and design.
+This and adapted version of Genesis Sandbox
 
 ### Functions File (functions.php)
 This file contains the bulk of the heavy lifting for the child theme. In this file, you will find the following:
