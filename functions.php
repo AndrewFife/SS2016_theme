@@ -3,13 +3,13 @@
 /**
  * Custom amendments for the theme.
  *
- * @category   Genesis_Sandbox
+ * @category   SS 2016 Theme
  * @package    Functions
  * @subpackage Functions
- * @author     Travis Smith and Jonathan Perez
+ * @author     Andrew Fife
  * @license    http://www.opensource.org/licenses/gpl-license.php GPL v2.0 (or later)
- * @link       http://surefirewebservices.com/
- * @since      1.1.0
+ * @link       http://ucc.co.za/
+ * @since      1.0.0
  */
 
 // Initialize Sandbox ** DON'T REMOVE **
@@ -45,6 +45,14 @@ function gs_theme_setup() {
 
 	// Enable Custom Header
 	//add_theme_support('genesis-custom-header');
+	
+	// Add support for Custom Logo
+	 add_theme_support( 'custom-logo', array(
+	'height'      => 57,
+	'width'       => 115,
+	'flex-height' => true,
+	'flex-width'  => true,
+	        ) );
 
 
 	// Add support for structural wraps
