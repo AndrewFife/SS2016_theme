@@ -516,8 +516,8 @@ h6,
   border: none;
   color: white;
   display: block;
-  padding: 28px 24px;
-  padding: 2.8rem 2.4rem;
+  padding: 20px 20px;
+  padding: 1.4rem 1.2rem;
   position: relative;
 }
 .genesis-nav-menu a:hover {
