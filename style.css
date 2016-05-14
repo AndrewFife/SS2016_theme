@@ -479,9 +479,9 @@ h6,
 .header-image .title-area {
   display: block;
   float: left;
-  min-height: 120px;
+  min-height: 68px;
   overflow: hidden;
-  width: 50%;
+  
 }
 
 .header-image .site-description {
