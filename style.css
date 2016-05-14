@@ -231,8 +231,7 @@ a img {
 .sidebar-content .sidebar-primary,
 .content-sidebar-sidebar .sidebar-primary,
 .sidebar-content-sidebar .sidebar-primary,
-.sidebar-sidebar-content .sidebar-primary,
-.title-area {
+.sidebar-sidebar-content .sidebar-primary {
   width: 30.55556%;
   /* 352px / 1152px */
 }
@@ -242,18 +241,20 @@ a img {
 .content-sidebar .content,
 .sidebar-content .content,
 .sidebar-content-sidebar .content,
-.sidebar-sidebar-content .content,
-.site-header .widget-area {
+.sidebar-sidebar-content .content {
   width: 65.27778%;
   /* 752px / 1152px */
 }
 
-.one-fourth {
+.one-fourth,
+.title-area {
   width: 21.875%;
+  
   /* 252px / 1152px */
 }
 
-.three-fourths {
+.three-fourths,
+.site-header .widget-area {
   width: 73.95833%;
   /* 852px / 1152px */
 }
