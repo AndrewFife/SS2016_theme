@@ -433,10 +433,13 @@ h6,
 03 Header
 ---------------------------------------------------------------------------------------------------- */
 .site-header {
-  min-height: 120px;
+  position: fixed;
+  width: 100%;
+  z-index: 20;
+  min-height: 68px;
   overflow: hidden;
-  padding-bottom: 32px;
-  padding-bottom: 3.2rem;
+  background-color: white;
+  box-shadow: 0 1px 7px -3px rgba(0,0,0,.3);
 }
 
 .site-title {
