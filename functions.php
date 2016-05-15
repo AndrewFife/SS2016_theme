@@ -19,14 +19,14 @@ add_action( 'genesis_setup', 'gs_theme_setup', 15 );
 
 //Theme Set Up Function
 function gs_theme_setup() {
-	
+
 	//Enable HTML5 Support
 	add_theme_support( 'html5' );
 
 	//Enable Post Navigation
 	add_action( 'genesis_after_entry_content', 'genesis_prev_next_post_nav', 5 );
 
-	/** 
+	/**
 	 * 01 Set width of oEmbed
 	 * genesis_content_width() will be applied; Filters the content width based on the user selected layout.
 	 *
@@ -36,16 +36,16 @@ function gs_theme_setup() {
 	 * @param integer $large Large width
 	 */
 	$content_width = apply_filters( 'content_width', 600, 430, 920 );
-	
+
 	//Custom Image Sizes
 	add_image_size( 'featured-image', 225, 160, TRUE );
-	
+
 	// Enable Custom Background
 	//add_theme_support( 'custom-background' );
 
 	// Enable Custom Header
 	//add_theme_support('genesis-custom-header');
-	
+
 	// Add support for Custom Logo
 	 add_theme_support( 'custom-logo', array(
 	'height'      => 57,
@@ -53,7 +53,7 @@ function gs_theme_setup() {
 	'flex-height' => true,
 	'flex-width'  => true,
 	        ) );
-	        
+
 /**
  * Add an image inline in the site title element for the main logo
  *
@@ -62,7 +62,7 @@ function gs_theme_setup() {
  * @param string $title All the mark up title.
  * @param string $inside Mark up inside the title.
  * @param string $wrap Mark up on the title.
- * 
+ *
  */
 function SS2016_custom_logo( $title, $inside, $wrap ) {
 	// Check to see if the Custom Logo function exists and set what goes inside the wrapping tags.
@@ -118,7 +118,7 @@ add_filter( 'genesis_seo_title','SS2016_custom_logo', 10, 3 );
 	 * Add support for 3-column footer widgets
 	 * Change 3 for support of up to 6 footer widgets (automatically styled for layout)
 	 */
-	add_theme_support( 'genesis-footer-widgets', 3 );
+	add_theme_support( 'genesis-footer-widgets', 4 );
 
 	/**
 	 * 08 Genesis Menus
@@ -126,32 +126,32 @@ add_filter( 'genesis_seo_title','SS2016_custom_logo', 10, 3 );
 	 * Delete any menu systems that you do not wish to use.
 	 */
 	add_theme_support(
-		'genesis-menus', 
+		'genesis-menus',
 		array(
-			'primary'   => __( 'Primary Navigation Menu', CHILD_DOMAIN ), 
+			'primary'   => __( 'Primary Navigation Menu', CHILD_DOMAIN ),
 			'secondary' => __( 'Secondary Navigation Menu', CHILD_DOMAIN ),
 			'footer'    => __( 'Footer Navigation Menu', CHILD_DOMAIN ),
 			'mobile'    => __( 'Mobile Navigation Menu', CHILD_DOMAIN ),
 		)
 	);
-	
+
 	// Add Mobile Navigation
 	add_action( 'genesis_before', 'gs_mobile_navigation', 5 );
-	
+
 	//Enqueue Sandbox Scripts
 	add_action( 'wp_enqueue_scripts', 'gs_enqueue_scripts' );
-	
+
 	/**
 	 * 13 Editor Styles
 	 * Takes a stylesheet string or an array of stylesheets.
-	 * Default: editor-style.css 
+	 * Default: editor-style.css
 	 */
 	//add_editor_style();
-	
-	
+
+
 	// Register Sidebars
 	gs_register_sidebars();
-	
+
 } // End of Set Up Function
 
 // Register Sidebars
@@ -193,7 +193,7 @@ function gs_register_sidebars() {
 			'description'	=> __( 'This will show up after every post.', CHILD_DOMAIN ),
 		),
 	);
-	
+
 	foreach ( $sidebars as $sidebar )
 		genesis_register_sidebar( $sidebar );
 }
@@ -204,19 +204,19 @@ function gs_register_sidebars() {
 require_once('lib/scripts.php');
 
 /**
- * Add navigation menu 
+ * Add navigation menu
  * Required for each registered menu.
- * 
+ *
  * @uses gs_navigation() Sandbox Navigation Helper Function in gs-functions.php.
  */
 
 //Add Mobile Menu
 function gs_mobile_navigation() {
-	
+
 	$mobile_menu_args = array(
 		'echo' => true,
 	);
-	
+
 	gs_navigation( 'mobile', $mobile_menu_args );
 }
 
@@ -224,12 +224,12 @@ function gs_mobile_navigation() {
 add_action('genesis_after_entry', 'gs_do_after_entry');
 function gs_do_after_entry() {
  	if ( is_single() ) {
- 	genesis_widget_area( 
-                'after-post', 
+ 	genesis_widget_area(
+                'after-post',
                 array(
-                        'before' => '<aside id="after-post" class="after-post"><div class="home-widget widget-area">', 
+                        'before' => '<aside id="after-post" class="after-post"><div class="home-widget widget-area">',
                         'after' => '</div></aside><!-- end #home-left -->',
-                ) 
+                )
         );
  }
  }
